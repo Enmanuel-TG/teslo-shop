@@ -1,37 +1,47 @@
 import { M_Alternates } from "@/src/config/fonts";
 import Link from "next/link";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
+import { ButtonMenu } from "./buttonMenu";
+
+interface category {
+  href: string;
+  title: string;
+}
+
+const categories: category[] = [
+  {
+    href: "/category/Men",
+    title: "Men",
+  },
+  {
+    href: "/category/women",
+    title: "Women",
+  },
+  {
+    href: "/category/Kids",
+    title: "Kids",
+  },
+];
 
 export const TopMenu = () => {
   return (
     <nav className="flex px-5 justify-between items-center w-full">
       <div>
         <Link href="/">
-          <span className={`antialiased font-bold`}>
-            Teslo
-          </span>
+          <span className={`antialiased font-bold`}>Teslo</span>
           <span className={M_Alternates.className}>| Shop</span>
         </Link>
       </div>
       <div className="hidden sm:block">
-        <Link
-          href={"/category/Men"}
-          className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
-        >
-          Men
-        </Link>
-        <Link
-          href={"/category/Women"}
-          className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
-        >
-          Women
-        </Link>
-        <Link
-          href={"/category/Kids"}
-          className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
-        >
-          Kids
-        </Link>
+        {categories.map((category, i) => (
+          <Link
+            key={i}
+            href={category.href}
+            className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
+          >
+            {category.title}
+          </Link>
+        ))}
       </div>
       <div className="flex items-center">
         <Link href="/search" className="mx-2">
@@ -45,10 +55,7 @@ export const TopMenu = () => {
             <IoCartOutline className="w-5 h-5" />
           </div>
         </Link>
-        <button className="m-2 p-2 rounded-md translate-all hover:bg-gray-100">
-          {" "}
-          Menu
-        </button>
+        <ButtonMenu />
       </div>
     </nav>
   );
