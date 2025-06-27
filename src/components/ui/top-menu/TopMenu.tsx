@@ -10,7 +10,7 @@ interface category {
 
 const categories: category[] = [
   {
-    href: "/category/Men",
+    href: "/category/men",
     title: "Men",
   },
   {
@@ -18,7 +18,7 @@ const categories: category[] = [
     title: "Women",
   },
   {
-    href: "/category/Kids",
+    href: "/category/kid",
     title: "Kids",
   },
 ];
