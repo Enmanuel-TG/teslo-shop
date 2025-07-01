@@ -1,6 +1,7 @@
 import { initialData } from "@/src/seed/seed";
 import notFound from "../../category/not-found";
 import { geistSans } from "@/src/config/fonts";
+import { QuantitySelector, SizeSelector } from "@/src/components";
 
 interface Props {
   params: {
@@ -25,6 +26,8 @@ export default function ({ params }: Props) {
         </h1>
         <p className="text-log mb-5">{product.price}</p>
 
+        <SizeSelector selectedSize={product.sizes[0]} availableSize={product.sizes} />
+        <QuantitySelector quantity={5}/>
 
         <button className="btn-primary my-5">add to cart</button>
         <h3 className="font-bold text-sm">description</h3>
