@@ -1,7 +1,7 @@
 import { initialData } from "@/src/seed/seed";
 import notFound from "../../category/not-found";
 import { geistSans } from "@/src/config/fonts";
-import { QuantitySelector, SizeSelector } from "@/src/components";
+import { ProductSlideshow, QuantitySelector, SizeSelector } from "@/src/components";
 
 interface Props {
   params: {
@@ -19,7 +19,9 @@ export default function ({ params }: Props) {
    }
   return (
     <div className="mt-5 mb-20 grid grid-cols-1 md:grid-cols-3 gap-3">
-      <div className="col-span-1 md:col-span-2">hi</div>
+      <div className="col-span-1 md:col-span-2">
+        <ProductSlideshow images={product.images} title={product.slug}/>
+      </div>
       <div className="col-span-1 px-5">
         <h1 className={`${geistSans.className} antialiased font-bold text-xl`}>
           {product.title}
