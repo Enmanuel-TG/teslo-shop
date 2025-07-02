@@ -3,7 +3,7 @@ import { geistSans } from "@/src/config/fonts";
 interface Props {
   title: string;
   subtitle?: string;
-  className: string;
+  className?: string;
 }
 
 
